@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">BTL</string>
+    <string name="title">Sun Ship</string>
+    <string name="sub_title">Đồng hành cùng bạn</string>
+    <string name="loginsuccess">"Đăng nhập thành công</string>
+    <string name="loginerror">Mật khẩu hoặc số diện thoại không đúng</string>
+    <string name="title_activity_home">Home</string>
+    <string name="title_activity_dang_ky">dang_ky</string>
+    <string name="addInfor">Vui lòng nhập đủ thông tin</string>
+
+</resources>
