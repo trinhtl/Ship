@@ -24,26 +24,35 @@
         android:id="@+id/barrier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:barrierDirection="left" />
+        app:barrierDirection="left"
+        tools:layout_editor_absoluteX="411dp" />
 
     <android.support.constraint.Barrier
         android:id="@+id/barrier2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:barrierDirection="top" />
+        app:barrierDirection="top"
+        tools:layout_editor_absoluteY="731dp" />
 
     <ImageView
         android:id="@+id/imageHome"
         android:layout_width="213dp"
-        android:layout_height="197dp"
-        app:srcCompat="@mipmap/ic_launcher_round"
-        tools:layout_editor_absoluteX="99dp"
-        tools:layout_editor_absoluteY="67dp" />
+        android:layout_height="0dp"
+        android:layout_marginTop="67dp"
+        android:layout_marginBottom="382dp"
+        app:layout_constraintBottom_toTopOf="@+id/dky"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_launcher_round" />
 
     <Button
         android:id="@+id/log_in"
-        android:layout_width="273dp"
-        android:layout_height="19dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginBottom="81dp"
         android:background="@color/colorAccent"
         android:fontFamily="sans-serif"
         android:text="Đăng nhập bằng số điện thoại"
@@ -51,74 +60,96 @@
         android:textSize="14sp"
         android:textStyle="bold"
         android:typeface="serif"
-        tools:layout_editor_absoluteX="68dp"
-        tools:layout_editor_absoluteY="546dp" />
+        app:layout_constraintBottom_toTopOf="@+id/sub_dky"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passw" />
 
     <TextView
         android:id="@+id/dky"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="61dp"
         android:gravity="center"
         android:text="Đăng ký"
         android:textColor="@color/colorAccent"
         android:textSize="18sp"
         android:textStyle="bold|italic"
-        tools:layout_editor_absoluteX="273dp"
-        tools:layout_editor_absoluteY="646dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sub_dky"
+        app:layout_constraintTop_toBottomOf="@+id/imageHome" />
 
     <TextView
         android:id="@+id/sub_dky"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="61dp"
         android:text="Bạn chưa có tài khoản?"
         android:textSize="18sp"
-        tools:layout_editor_absoluteX="82dp"
-        tools:layout_editor_absoluteY="646dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/dky"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/log_in" />
 
     <EditText
         android:id="@+id/passw"
-        android:layout_width="269dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginBottom="27dp"
         android:ems="10"
         android:hint="Mật khẩu"
         android:inputType="textPassword"
         android:textColor="@color/colorPrimary"
-        tools:layout_editor_absoluteX="68dp"
-        tools:layout_editor_absoluteY="474dp" />
+        app:layout_constraintBottom_toTopOf="@+id/log_in"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phone" />
 
     <EditText
         android:id="@+id/phone"
-        android:layout_width="268dp"
-        android:layout_height="44dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="13dp"
         android:ems="10"
         android:hint="Số điện thoại"
         android:inputType="phone"
         android:singleLine="true"
         android:textColor="@color/colorPrimary"
-        tools:layout_editor_absoluteX="68dp"
-        tools:layout_editor_absoluteY="417dp" />
+        app:layout_constraintBottom_toTopOf="@+id/passw"
+        app:layout_constraintEnd_toEndOf="@+id/dky"
+        app:layout_constraintStart_toStartOf="@+id/passw"
+        app:layout_constraintTop_toBottomOf="@+id/nameApp" />
 
     <TextView
         android:id="@+id/nameApp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="81dp"
         android:text="Sun Ship"
         android:textAlignment="center"
         android:textColor="@color/colorAccent"
         android:textSize="30sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="145dp"
-        tools:layout_editor_absoluteY="295dp" />
+        app:layout_constraintBottom_toTopOf="@+id/phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageHome" />
 
     <!--<Button-->
-        <!--android:id="@+id/log_in_fb"-->
-        <!--android:layout_width="273dp"-->
-        <!--android:layout_height="35dp"-->
-        <!--android:background="@drawable/com_facebook_button_background"-->
-        <!--android:text="Button"-->
-        <!--tools:layout_editor_absoluteX="69dp"-->
-        <!--tools:layout_editor_absoluteY="579dp"-->
-        <!--tools:text="Đăng nhập bằng Facebook" />-->
+    <!--android:id="@+id/log_in_fb"-->
+    <!--android:layout_width="273dp"-->
+    <!--android:layout_height="35dp"-->
+    <!--android:background="@drawable/com_facebook_button_background"-->
+    <!--android:text="Button"-->
+    <!--tools:layout_editor_absoluteX="69dp"-->
+    <!--tools:layout_editor_absoluteY="579dp"-->
+    <!--tools:text="Đăng nhập bằng Facebook" />-->
 
 
 </android.support.constraint.ConstraintLayout>

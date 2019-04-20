@@ -9,9 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ListPackages"></activity>
         <activity android:name=".CreatePackage" />
-        <activity android:name=".dang_ky" />
+        <activity android:name=".Registration" />
         <activity android:name=".Home" />
         <activity android:name=".MainActivity">
             <intent-filter>
