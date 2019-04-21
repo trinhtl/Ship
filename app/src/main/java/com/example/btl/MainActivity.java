@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         List<Item> pakageListData = getListData();
         ListView pakageList = (ListView) findViewById(R.id.list);
         pakageList.setAdapter(new ListPackageAdapter(pakageListData, this));
-//        List<Try> data =
+//        List<Test> data =
 
 //        Anhxa();
 //        //  nhan" dky de tao tai khoan
@@ -63,11 +63,13 @@ public class MainActivity extends AppCompatActivity {
         List<Item> list = new ArrayList<Item>();
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date date = new Date();
-        Item first = new Item(1, "a.png", "anonymous", "50k", "20k", new Date(dateFormat.format(date)), "181 Xuân Thủy, Cầu Giấy", "18 Ba Đình", "Cần gấp");
+        Item first = new Item(1, "a", "Jack", "50k", "20k", new Date(dateFormat.format(date)), "181 Xuân Thủy, Cầu Giấy", "18 Ba Đình", "Cần gấp");
         list.add(first);
+        Item second = new Item(2, "a", "Mary", "50k", "20k", new Date(dateFormat.format(date)), "181 Xuân Thủy, Cầu Giấy", "18 Ba Đình", "Cần gấp");
+        list.add(second);
         return  list;
     }
-//    private  List<Try> getList(){
+//    private  List<Test> getList(){
 //
 //    }
 }

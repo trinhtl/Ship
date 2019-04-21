@@ -1,9 +1,9 @@
 package com.example.btl;
 
-public class Try {
+public class Test {
     private String name;
 
-    public Try(String name) {
+    public Test(String name) {
         this.name = name;
     }
 

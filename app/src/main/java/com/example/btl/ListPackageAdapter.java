@@ -75,7 +75,7 @@ public class ListPackageAdapter extends BaseAdapter {
         String pkgName = context.getPackageName();
 
         int resID = context.getResources().getIdentifier(resName, "mipmap", pkgName);
-        Log.i("List", "Res Name: "+ resName+"==> Res ID = "+ resID);
+        Log.i("List", "Package Name: "+ pkgName +"Res Name: "+ resName+"==> Res ID = "+ resID);
         return resID;
     }
     static class ViewHolder{
