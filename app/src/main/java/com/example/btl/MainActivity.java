@@ -1,21 +1,20 @@
 package com.example.btl;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
 
-import java.util.Date;
+import java.net.URISyntaxException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+import io.socket.client.IO;
+import io.socket.client.Socket;
+import io.socket.emitter.Emitter;
 
 public class MainActivity extends AppCompatActivity {
 //    Button bt_Login, bt_dky, bt_fb;
@@ -31,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         List<Item> pakageListData = getListData();
         ListView pakageList = (ListView) findViewById(R.id.list);
         pakageList.setAdapter(new ListPackageAdapter(pakageListData, this));
-//        List<Test> data =
+
 
 //        Anhxa();
 //        //  nhan" dky de tao tai khoan
@@ -68,6 +67,19 @@ public class MainActivity extends AppCompatActivity {
         Item second = new Item(2, "a", "Mary", "50k", "20k", new Date(dateFormat.format(date)), "181 Xuân Thủy, Cầu Giấy", "18 Ba Đình", "Cần gấp");
         list.add(second);
         return  list;
+    }
+    private void getData(){
+        try {
+            Socket socket = IO.socket("http://localhost:3000");
+            socket.on(Socket.EVENT_CONNECT, new Emitter.Listener() {
+                @Override
+                public void call(Object... args) {
+                    Log.e("Response", args[0].toString());
+                }
+            });
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
     }
 //    private  List<Test> getList(){
 //

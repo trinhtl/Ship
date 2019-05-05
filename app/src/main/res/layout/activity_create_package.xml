@@ -57,7 +57,7 @@
         android:layout_height="50dp"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="410dp"
-        android:hint="Nhập giá trị đơn hàng" />
+        android:hint="Nhập tiền ứng" />
 
     <Button
         android:id="@+id/btnTao"

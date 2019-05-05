@@ -1,0 +1,28 @@
+{
+  "name": "ship",
+  "version": "1.0.0",
+  "description": "ứng dụng giao hầng",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trinhtl/Ship.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/trinhtl/Ship/issues"
+  },
+  "homepage": "https://github.com/trinhtl/Ship#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.16.4",
+    "http": "0.0.0",
+    "multer": "^1.4.1",
+    "sequelize": "^5.7.6",
+    "socket.io": "^2.2.0",
+    "sqlite3": "^4.0.6"
+  }
+}
