@@ -11,7 +11,7 @@ public class CreatePackage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_package);
+        setContentView(R.layout.fragment_create_package);
 
         btnTao.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <item android:id="@+id/activePackageIcon"
+        android:icon="@drawable/active_package"
+        android:title="" />
+    <item android:id="@+id/listPackageIcon"
+        android:icon="@drawable/list_package"
+        android:title="list"/>
+    <item android:id="@+id/filtPackageIcon"
+        android:icon="@drawable/filt_package"
+        android:title="filt"/>
+    <item android:id="@+id/userProfileIcon"
+        android:icon="@drawable/user_profile"
+        android:title="active"/>
+</menu>

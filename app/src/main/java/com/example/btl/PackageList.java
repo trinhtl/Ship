@@ -8,6 +8,6 @@ public class PackageList extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_package_list);
+        setContentView(R.layout.fragment_package_list);
     }
 }
