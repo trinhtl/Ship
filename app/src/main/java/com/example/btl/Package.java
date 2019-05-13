@@ -10,8 +10,26 @@ public class Package {
     private String advanceMoney;
     private String sendAddress;
     private String recieveAddress;
+    private Date shippeRecievePackageTime;
+    private Date shippedTime;
     private Date updateTime;
     private Date createTime;
+
+    public Date getShippeRecievePackageTime() {
+        return shippeRecievePackageTime;
+    }
+
+    public void setShippeRecievePackageTime(Date shippeRecievePackageTime) {
+        this.shippeRecievePackageTime = shippeRecievePackageTime;
+    }
+
+    public Date getShippedTime() {
+        return shippedTime;
+    }
+
+    public void setShippedTime(Date shippedTime) {
+        this.shippedTime = shippedTime;
+    }
 
     public int getId() {
         return id;

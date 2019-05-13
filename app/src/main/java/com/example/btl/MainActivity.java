@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -12,6 +13,12 @@ import com.example.btl.fragments.CurrentPackageFragment;
 import com.example.btl.fragments.PackageFilterFragment;
 import com.example.btl.fragments.PackageListFragment;
 import com.example.btl.fragments.UserProfileFragment;
+
+import java.net.URISyntaxException;
+
+import io.socket.client.IO;
+import io.socket.client.Socket;
+import io.socket.emitter.Emitter;
 
 public class MainActivity extends AppCompatActivity implements UserProfileFragment.OnFragmentInteractionListener, PackageListFragment.OnFragmentInteractionListener, CreatePackageFragment.OnFragmentInteractionListener, CurrentPackageFragment.OnFragmentInteractionListener, PackageFilterFragment.OnFragmentInteractionListener {
 //    Button bt_Login, bt_dky, bt_fb;
@@ -26,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements UserProfileFragme
         setContentView(R.layout.activity_home);
         bt = findViewById(R.id.button);
 
-
+        getData();
 
 //        Anhxa();
 //        //  nhan" dky de tao tai khoan
@@ -59,7 +66,19 @@ public class MainActivity extends AppCompatActivity implements UserProfileFragme
     public void onFragmentInteraction(Uri uri) {
 
     }
-//    private  List<Test> getList(){
-//
-//    }
+    private void getData(){
+        Log.v("Message", "Get data");
+        System.out.println("Get data");
+        try {
+            Socket socket = IO.socket("http://localhost:3000");
+            socket.on(Socket.EVENT_CONNECT, new Emitter.Listener() {
+                @Override
+                public void call(Object... args) {
+                    Log.e("Response", args[0].toString());
+                }
+            });
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+    }
 }

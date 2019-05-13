@@ -45,12 +45,9 @@ public class ShipperNavigatorMenu extends AppCompatActivity implements CurrentPa
                     loadFragment(fragment);
                     return true;
                 case R.id.listPackageIcon:
-                    toolbar.setTitle("Active Package");
+                    toolbar.setTitle("Package List");
                     fragment = new PackageListFragment();
                     loadFragment(fragment);
-//                    List<Item> pakageListData = getListData();
-//                    ListView pakageList = (ListView) findViewById(R.id.packageList);
-//                    pakageList.setAdapter(new ListPackageAdapter(pakageListData, ShipperNavigatorMenu.this));
                     return true;
                 case R.id.filtPackageIcon:
                     toolbar.setTitle("Filt Package");
@@ -98,17 +95,5 @@ public class ShipperNavigatorMenu extends AppCompatActivity implements CurrentPa
         list.add(second);
         return  list;
     }
-    private void getData(){
-        try {
-            Socket socket = IO.socket("http://localhost:3000");
-            socket.on(Socket.EVENT_CONNECT, new Emitter.Listener() {
-                @Override
-                public void call(Object... args) {
-                    Log.e("Response", args[0].toString());
-                }
-            });
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
-    }
+
 }

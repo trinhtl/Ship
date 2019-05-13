@@ -4,11 +4,21 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
+import com.example.btl.Item;
+import com.example.btl.ListPackageAdapter;
 import com.example.btl.R;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -64,8 +74,23 @@ public class PackageListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_package_list, container, false);
+        List<Item> pakageListData = getListData();
+        ListView pakageList = (ListView) view.findViewById(R.id.packageList);
+        pakageList.setAdapter(new ListPackageAdapter(pakageListData, getActivity()));
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_package_list, container, false);
+        return view;
+    }
+    private List<Item> getListData(){
+        Log.i("getList", "get data");
+        List<Item> list = new ArrayList<Item>();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();
+        Item first = new Item(1, "a", "Jack", "50k", "20k", new Date(dateFormat.format(date)), "181 Xuân Thủy, Cầu Giấy", "18 Ba Đình", "Cần gấp");
+        list.add(first);
+        Item second = new Item(2, "a", "Mary", "50k", "20k", new Date(dateFormat.format(date)), "181 Xuân Thủy, Cầu Giấy", "18 Ba Đình", "Cần gấp");
+        list.add(second);
+        return  list;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -106,4 +131,5 @@ public class PackageListFragment extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
 }
