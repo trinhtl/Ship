@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.example.btl.Item;
+import com.example.btl.dao.Item;
 import com.example.btl.ListPackageAdapter;
 import com.example.btl.R;
 

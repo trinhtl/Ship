@@ -8,7 +8,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MenuItem;
 
 import com.example.btl.fragments.CreatePackageFragment;
@@ -16,17 +15,6 @@ import com.example.btl.fragments.CurrentPackageFragment;
 import com.example.btl.fragments.PackageFilterFragment;
 import com.example.btl.fragments.PackageListFragment;
 import com.example.btl.fragments.UserProfileFragment;
-
-import java.net.URISyntaxException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
-import io.socket.client.IO;
-import io.socket.client.Socket;
-import io.socket.emitter.Emitter;
 
 public class ShipperNavigatorMenu extends AppCompatActivity implements CurrentPackageFragment.OnFragmentInteractionListener, PackageListFragment.OnFragmentInteractionListener, CreatePackageFragment.OnFragmentInteractionListener, UserProfileFragment.OnFragmentInteractionListener, PackageFilterFragment.OnFragmentInteractionListener {
 
@@ -72,6 +60,7 @@ public class ShipperNavigatorMenu extends AppCompatActivity implements CurrentPa
         toolbar = getSupportActionBar();
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.shipperNavigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        navigation.setSelectedItemId(R.id.activePackageIcon);
     }
     private void loadFragment(Fragment fragment){
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -83,17 +72,6 @@ public class ShipperNavigatorMenu extends AppCompatActivity implements CurrentPa
     @Override
     public void onFragmentInteraction(Uri uri) {
 
-    }
-    private List<Item> getListData(){
-        Log.i("getList", "get data");
-        List<Item> list = new ArrayList<Item>();
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        Date date = new Date();
-        Item first = new Item(1, "a", "Jack", "50k", "20k", new Date(dateFormat.format(date)), "181 Xuân Thủy, Cầu Giấy", "18 Ba Đình", "Cần gấp");
-        list.add(first);
-        Item second = new Item(2, "a", "Mary", "50k", "20k", new Date(dateFormat.format(date)), "181 Xuân Thủy, Cầu Giấy", "18 Ba Đình", "Cần gấp");
-        list.add(second);
-        return  list;
     }
 
 }

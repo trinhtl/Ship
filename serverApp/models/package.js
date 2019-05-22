@@ -32,6 +32,10 @@ var Package = sequelize.define('package', {
 		type: Sequelize.STRING,
 		allowNull: false
 	},
+	description: {
+		type: Sequelize.STRING,
+		allowNull: true
+	},
 	createdAt: {
 		type: Sequelize.DATE,
 		allowNull: true

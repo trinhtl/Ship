@@ -5,11 +5,10 @@
     <item android:id="@+id/createPackageIcon"
         android:icon="@drawable/create_package"
         android:title="" />
-    <item android:id="@+id/userProfileIcon"
-        android:icon="@drawable/user_profile"
-        android:title=""/>
     <item android:id="@+id/shopActivePackageIcon"
         android:icon="@drawable/shop_active_package"
         android:title=""/>
-
+    <item android:id="@+id/userProfileIcon"
+        android:icon="@drawable/user_profile"
+        android:title=""/>
 </menu>

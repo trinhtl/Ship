@@ -9,6 +9,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.btl.dao.Item;
+
 import java.util.List;
 
 public class ListPackageAdapter extends BaseAdapter {

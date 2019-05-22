@@ -17,7 +17,6 @@
         <activity
             android:name=".ShipperNavigatorMenu"
             android:label="@string/title_activity_shipper_navigator_menu" />
-        <activity android:name=".CreatePackage" />
         <activity android:name=".Registration" />
         <activity android:name=".Home" />
         <activity android:name=".MainActivity">

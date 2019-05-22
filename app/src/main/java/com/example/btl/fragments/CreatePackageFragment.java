@@ -3,12 +3,15 @@ package com.example.btl.fragments;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.btl.R;
+import com.example.btl.dao.Package;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -65,7 +68,21 @@ public class CreatePackageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_create_package, container, false);
+        final View view = inflater.inflate(R.layout.fragment_create_package, container, false);
+        Button createBtn = (Button) view.findViewById(R.id.btnTao);
+        createBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TextInputEditText sendAddress = (TextInputEditText) view.findViewById(R.id.create_send_address);
+                TextInputEditText recieveAddress = (TextInputEditText) view.findViewById(R.id.create_recieve_address);
+                TextInputEditText shipCost = (TextInputEditText) view.findViewById(R.id.create_ship_cost);
+                TextInputEditText advanceMoney = (TextInputEditText) view.findViewById(R.id.create_advance_money);
+                TextInputEditText description = (TextInputEditText) view.findViewById(R.id.create_description);
+                Package newPackage = new Package(1, sendAddress.getText().toString().trim(), recieveAddress.getText().toString().trim(), shipCost.getText().toString().trim(), advanceMoney.getText().toString().trim(), description.getText().toString().trim());
+                System.out.println(newPackage.toString());
+            }
+        });
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

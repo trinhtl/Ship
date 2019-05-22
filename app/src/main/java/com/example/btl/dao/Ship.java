@@ -1,4 +1,4 @@
-package com.example.btl;
+package com.example.btl.dao;
 
 import java.sql.Date;
 

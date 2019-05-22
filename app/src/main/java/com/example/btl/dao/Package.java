@@ -1,34 +1,21 @@
-package com.example.btl;
-
-import java.sql.Date;
+package com.example.btl.dao;
 
 public class Package {
     private int id;
     private int idOwner;
-    private int idShipper;
     private String shipCost;
     private String advanceMoney;
     private String sendAddress;
     private String recieveAddress;
-    private Date shippeRecievePackageTime;
-    private Date shippedTime;
-    private Date updateTime;
-    private Date createTime;
+    private String description;
 
-    public Date getShippeRecievePackageTime() {
-        return shippeRecievePackageTime;
-    }
-
-    public void setShippeRecievePackageTime(Date shippeRecievePackageTime) {
-        this.shippeRecievePackageTime = shippeRecievePackageTime;
-    }
-
-    public Date getShippedTime() {
-        return shippedTime;
-    }
-
-    public void setShippedTime(Date shippedTime) {
-        this.shippedTime = shippedTime;
+    public Package(int idOwner, String shipCost, String advanceMoney, String sendAddress, String recieveAddress, String description) {
+        this.idOwner = idOwner;
+        this.shipCost = shipCost;
+        this.advanceMoney = advanceMoney;
+        this.sendAddress = sendAddress;
+        this.recieveAddress = recieveAddress;
+        this.description = description;
     }
 
     public int getId() {
@@ -45,14 +32,6 @@ public class Package {
 
     public void setIdOwner(int idOwner) {
         this.idOwner = idOwner;
-    }
-
-    public int getIdShipper() {
-        return idShipper;
-    }
-
-    public void setIdShipper(int idShipper) {
-        this.idShipper = idShipper;
     }
 
     public String getShipCost() {
@@ -87,19 +66,16 @@ public class Package {
         this.recieveAddress = recieveAddress;
     }
 
-    public Date getUpdateTime() {
-        return updateTime;
+    public String getDescription() {
+        return description;
     }
 
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    @Override
+    public String toString() {
+        return idOwner + "-" + shipCost + "-" + advanceMoney + "-" + sendAddress + "-" + recieveAddress + "-" + description;
     }
 }

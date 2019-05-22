@@ -1,4 +1,4 @@
-package com.example.btl;
+package com.example.btl.dao;
 
 import java.sql.Date;
 
@@ -8,6 +8,15 @@ public class User {
     private String phone;
     private String name;
     private String email;
+
+    public User(String role, String phone, String name, String email, String avatar) {
+        this.role = role;
+        this.phone = phone;
+        this.name = name;
+        this.email = email;
+        this.avatar = avatar;
+    }
+
     private String avatar;
     private Date updateTime;
     private Date createTime;

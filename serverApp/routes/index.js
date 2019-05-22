@@ -8,5 +8,5 @@ var item = require('../controllers/item');
 
 router.get('/user/list', user.list);
 router.get('/package/list', package.list);
-
+router.get('/', user.list);
 module.exports = router;
