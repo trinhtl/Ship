@@ -12,6 +12,7 @@ import android.widget.Button;
 
 import com.example.btl.R;
 import com.example.btl.dao.Package;
+import com.example.btl.dao.PackageDAOImpl;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -80,6 +81,7 @@ public class CreatePackageFragment extends Fragment {
                 TextInputEditText description = (TextInputEditText) view.findViewById(R.id.create_description);
                 Package newPackage = new Package(1, sendAddress.getText().toString().trim(), recieveAddress.getText().toString().trim(), shipCost.getText().toString().trim(), advanceMoney.getText().toString().trim(), description.getText().toString().trim());
                 System.out.println(newPackage.toString());
+                createPackage(newPackage);
             }
         });
         return view;
@@ -122,5 +124,9 @@ public class CreatePackageFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+    public void  createPackage(Package p){
+        PackageDAOImpl packageDAO = new PackageDAOImpl();
+        packageDAO.insert(p);
     }
 }

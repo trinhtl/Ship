@@ -67,27 +67,27 @@ io.on('connection', socket => {
     	});
     });
    socket.on('package/add', (p1, p2, p3, p4, p5, p6) => {
-   		console.log("add package" + p1 + " " + p2 + " " + p3 + " " + p4  + " " + p5 + " " + p6 );
+   		console.log("add package" + p1 + " " + p2 + " " + p3 + " " + p4  + " " + p5 + " " + p6);
    		Package.create({
    			idOwner: p1,
-	   		idShipper: p2,
-	   		shipCost: p3,
-	   		advanceMoney: p4,
-	   		sendAddress: p5,
-	   		recieveAddress: p6
+	   		shipCost: p2,
+	   		advanceMoney: p3,
+	   		sendAddress: p4,
+	   		recieveAddress: p5,
+	   		description: p6
    		}).then(package => {
    			console.log(package)
    		});
    });
    socket.on('package/update', (id, p1, p2, p3, p4, p5, p6) => {
-   		console.log("update package" + id +" " + p1 + " " + p2 + " " + p3 + " " + p4  + " " + p5 + " " + p6 );
+   		console.log("update package" + id +" " + p1 + " " + p2 + " " + p3 + " " + p4  + " " + p5 + " " + p6);
    		Package.update({
    			idOwner: p1,
-	   		idShipper: p2,
-	   		shipCost: p3,
-	   		advanceMoney: p4,
-	   		sendAddress: p5,
-	   		recieveAddress: p6
+	   		shipCost: p2,
+	   		advanceMoney: p3,
+	   		sendAddress: p4,
+	   		recieveAddress: p5,
+	   		description: p6
    		},{
    			where: {id: id}
    		}).then(package => {

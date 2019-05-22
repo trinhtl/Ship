@@ -12,10 +12,6 @@ var Package = sequelize.define('package', {
 		type: Sequelize.INTEGER,
 		allowNull: false,
 	},
-	idShipper: {
-		type: Sequelize.INTEGER,
-		allowNull: true,
-	},
 	shipCost: {
 		type: Sequelize.STRING,
 		allowNull: false
