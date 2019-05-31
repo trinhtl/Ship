@@ -11,9 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.actions"
+            android:resource="@xml/get_package_popup" />
+
         <activity
             android:name=".ShopNavigatorMenu"
-            android:label="@string/title_activity_shop_navigator_menu"></activity>
+            android:label="@string/title_activity_shop_navigator_menu" />
         <activity
             android:name=".ShipperNavigatorMenu"
             android:label="@string/title_activity_shipper_navigator_menu" />
