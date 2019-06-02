@@ -1,24 +1,18 @@
 package com.example.btl.dao;
 
-import java.sql.Date;
-
 public class Ship {
     private int id;
-    private int idBill;
+    private int idPackage;
     private int idShipper;
     private String status;
-    private Date shipTime;
-    private Date updateTime;
-    private Date createTime;
+    private String shippedAt;
 
-    public Ship(int id, int idBill, int idShipper, String status, Date shipTime, Date updateTime, Date createTime) {
+    public Ship(int id, int idPackage, int idShipper, String status, String shippedAt) {
         this.id = id;
-        this.idBill = idBill;
+        this.idPackage = idPackage;
         this.idShipper = idShipper;
         this.status = status;
-        this.shipTime = shipTime;
-        this.updateTime = updateTime;
-        this.createTime = createTime;
+        this.shippedAt = shippedAt;
     }
 
     public int getId() {
@@ -29,12 +23,12 @@ public class Ship {
         this.id = id;
     }
 
-    public int getIdBill() {
-        return idBill;
+    public int getIdPackage() {
+        return idPackage;
     }
 
-    public void setIdBill(int idBill) {
-        this.idBill = idBill;
+    public void setIdPackage(int idPackage) {
+        this.idPackage = idPackage;
     }
 
     public int getIdShipper() {
@@ -53,27 +47,16 @@ public class Ship {
         this.status = status;
     }
 
-    public Date getShipTime() {
-        return shipTime;
+    public String getShippedAt() {
+        return shippedAt;
     }
 
-    public void setShipTime(Date shipTime) {
-        this.shipTime = shipTime;
+    public void setShippedAt(String shippedAt) {
+        this.shippedAt = shippedAt;
     }
 
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    @Override
+    public String toString() {
+        return id + "/" + idPackage + "/" + idShipper + "/" + status + "/" + shippedAt;
     }
 }

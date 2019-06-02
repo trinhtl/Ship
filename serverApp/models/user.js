@@ -8,28 +8,24 @@ var User = sequelize.define('user',{
 		allowNull: false,
 		primaryKey: true
 	},
-	role: {
+	name: {
 		type: Sequelize.STRING,
-		allowNull: false
+		allowNull: true
 	},
 	phone: {
 		type: Sequelize.STRING,
 		allowNull: false,
 		comment: '0000000000'
 	},
-	name: {
+	password: {
 		type: Sequelize.STRING,
-		allowNull: true
-	},
-	email: {
-		type: Sequelize.STRING,
-		allowNull: true,
-		comment: 'abc@gmail.com'
+		allowNull: false
 	},
 	avatar: {
 		type: Sequelize.STRING,
 		allowNull: true,
-		comment: './images/default.png'
+		comment: './images/default.png',
+		defaultValue: "a"
 	},
 	createdAt: {
 		type: Sequelize.DATE,

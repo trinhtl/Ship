@@ -15,5 +15,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="titleReg">Tham gia cùng chúng tôi</string>
+    <string name="titleProfile">Thông tin cá nhân</string>
 
 </resources>

@@ -7,11 +7,11 @@
         android:title="" />
     <item android:id="@+id/listPackageIcon"
         android:icon="@drawable/list_package"
-        android:title="list"/>
+        android:title=""/>
     <item android:id="@+id/filtPackageIcon"
         android:icon="@drawable/filt_package"
-        android:title="filt"/>
+        android:title=""/>
     <item android:id="@+id/userProfileIcon"
         android:icon="@drawable/user_profile"
-        android:title="active"/>
+        android:title=""/>
 </menu>

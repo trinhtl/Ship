@@ -11,12 +11,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.example.btl.fragments.CreatePackageFragment;
-import com.example.btl.fragments.CurrentPackageFragment;
 import com.example.btl.fragments.PackageFilterFragment;
 import com.example.btl.fragments.PackageListFragment;
+import com.example.btl.fragments.ShopCurrentPackageFragment;
+import com.example.btl.fragments.ShopProfileFragment;
 import com.example.btl.fragments.UserProfileFragment;
 
-public class ShipperNavigatorMenu extends AppCompatActivity implements CurrentPackageFragment.OnFragmentInteractionListener, PackageListFragment.OnFragmentInteractionListener, CreatePackageFragment.OnFragmentInteractionListener, UserProfileFragment.OnFragmentInteractionListener, PackageFilterFragment.OnFragmentInteractionListener {
+public class ShipperNavigatorMenu extends AppCompatActivity implements ShopProfileFragment.OnFragmentInteractionListener, ShopCurrentPackageFragment.OnFragmentInteractionListener, PackageListFragment.OnFragmentInteractionListener, CreatePackageFragment.OnFragmentInteractionListener, UserProfileFragment.OnFragmentInteractionListener, PackageFilterFragment.OnFragmentInteractionListener {
 
     private ActionBar toolbar;
 
@@ -29,7 +30,7 @@ public class ShipperNavigatorMenu extends AppCompatActivity implements CurrentPa
             switch (item.getItemId()) {
                 case R.id.activePackageIcon:
                     toolbar.setTitle("Active Package");
-                    fragment = new CurrentPackageFragment();
+                    fragment = new ShopCurrentPackageFragment();
                     loadFragment(fragment);
                     return true;
                 case R.id.listPackageIcon:
@@ -61,12 +62,15 @@ public class ShipperNavigatorMenu extends AppCompatActivity implements CurrentPa
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.shipperNavigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navigation.setSelectedItemId(R.id.activePackageIcon);
+
     }
     private void loadFragment(Fragment fragment){
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.shipperFrame, fragment);
+//        FrameLayout shipperFrameLayout = (FrameLayout) findViewById(R.id.shipperFrame);
         transaction.addToBackStack(null);
         transaction.commit();
+
     }
 
     @Override

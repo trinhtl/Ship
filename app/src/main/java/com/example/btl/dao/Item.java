@@ -1,19 +1,17 @@
 package com.example.btl.dao;
 
-import java.util.Date;
-
 public class Item {
-    private int id;
+    private int id;//package id
     private String avatar;
     private String nickname;
     private String shipCost;
     private String advanceMoney;
-    private Date createTime;
+    private String createTime;
     private String sendAddress;
     private String recieveAddress;
     private String description;
 
-    public Item(int id, String avatar, String nickname, String shipCost, String advanceMoney, Date createTime, String sendAddress, String recieveAddress, String description) {
+    public Item(int id, String avatar, String nickname, String shipCost, String advanceMoney, String createTime, String sendAddress, String recieveAddress, String description) {
         this.id = id;
         this.avatar = avatar;
         this.nickname = nickname;
@@ -23,6 +21,14 @@ public class Item {
         this.sendAddress = sendAddress;
         this.recieveAddress = recieveAddress;
         this.description = description;
+        if (avatar == null) this.avatar = "a";
+        if (nickname == null) this.nickname = "anonymous";
+        if (shipCost == null) this.shipCost = "0";
+        if (advanceMoney == null) this.advanceMoney = "0";
+        if (createTime == null) this.createTime = "";
+        if (sendAddress == null) this.sendAddress = "";
+        if (recieveAddress == null) this.recieveAddress = "";
+        if (description == null) this.description = "";
     }
 
     public int getId() {
@@ -65,11 +71,11 @@ public class Item {
         this.advanceMoney = advanceMoney;
     }
 
-    public Date getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 
@@ -95,5 +101,10 @@ public class Item {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return id + "-"  + avatar + "-" + nickname + "-"  + shipCost + "-"  + advanceMoney + "-"  + createTime + "-"  + sendAddress + "-"  + recieveAddress + "-"  + description;
     }
 }

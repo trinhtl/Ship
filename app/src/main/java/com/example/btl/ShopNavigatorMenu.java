@@ -11,12 +11,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.example.btl.fragments.CreatePackageFragment;
-import com.example.btl.fragments.CurrentPackageFragment;
+import com.example.btl.fragments.ShopCurrentPackageFragment;
 import com.example.btl.fragments.PackageFilterFragment;
 import com.example.btl.fragments.PackageListFragment;
+import com.example.btl.fragments.ShopProfileFragment;
 import com.example.btl.fragments.UserProfileFragment;
 
-public class ShopNavigatorMenu extends AppCompatActivity implements UserProfileFragment.OnFragmentInteractionListener, CurrentPackageFragment.OnFragmentInteractionListener, CreatePackageFragment.OnFragmentInteractionListener, PackageListFragment.OnFragmentInteractionListener, PackageFilterFragment.OnFragmentInteractionListener {
+public class ShopNavigatorMenu extends AppCompatActivity implements ShopProfileFragment.OnFragmentInteractionListener, UserProfileFragment.OnFragmentInteractionListener, ShopCurrentPackageFragment.OnFragmentInteractionListener, CreatePackageFragment.OnFragmentInteractionListener, PackageListFragment.OnFragmentInteractionListener, PackageFilterFragment.OnFragmentInteractionListener {
 
     private ActionBar toolbar;
 
@@ -34,12 +35,12 @@ public class ShopNavigatorMenu extends AppCompatActivity implements UserProfileF
                     return true;
                 case R.id.shopActivePackageIcon:
                     toolbar.setTitle("Active Package");
-                    fragment = new CurrentPackageFragment();
+                    fragment = new ShopCurrentPackageFragment();
                     loadFragment(fragment);
                     return true;
                 case R.id.userProfileIcon:
                     toolbar.setTitle("User Profile");
-                    fragment = new UserProfileFragment();
+                    fragment = new ShopProfileFragment();
                     loadFragment(fragment);
                     return true;
             }

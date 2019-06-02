@@ -1,6 +1,6 @@
 var sequelize = require('../common/sqlite');;
 var Sequelize = require('sequelize');
-
+var User = require('../models/user');
 var Package = sequelize.define('package', {
 	id: {
 		type: Sequelize.INTEGER,
@@ -11,6 +11,10 @@ var Package = sequelize.define('package', {
 	idOwner: {
 		type: Sequelize.INTEGER,
 		allowNull: false,
+		references: {
+	      model: User,
+	      key: 'id'
+	    }
 	},
 	shipCost: {
 		type: Sequelize.STRING,

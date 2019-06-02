@@ -9,7 +9,17 @@ public class Package {
     private String recieveAddress;
     private String description;
 
-    public Package(int idOwner, String shipCost, String advanceMoney, String sendAddress, String recieveAddress, String description) {
+    public Package(int idOwner, String sendAddress, String recieveAddress, String shipCost, String advanceMoney, String description) {
+        this.idOwner = idOwner;
+        this.shipCost = shipCost;
+        this.advanceMoney = advanceMoney;
+        this.sendAddress = sendAddress;
+        this.recieveAddress = recieveAddress;
+        this.description = description;
+    }
+
+    public Package(int id, int idOwner, String sendAddress, String recieveAddress, String shipCost, String advanceMoney, String description) {
+        this.id = id;
         this.idOwner = idOwner;
         this.shipCost = shipCost;
         this.advanceMoney = advanceMoney;

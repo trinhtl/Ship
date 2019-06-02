@@ -13,12 +13,12 @@ import com.example.btl.R;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link CurrentPackageFragment.OnFragmentInteractionListener} interface
+ * {@link ShopCurrentPackageFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link CurrentPackageFragment#newInstance} factory method to
+ * Use the {@link ShopCurrentPackageFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CurrentPackageFragment extends Fragment {
+public class ShopCurrentPackageFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -30,7 +30,7 @@ public class CurrentPackageFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public CurrentPackageFragment() {
+    public ShopCurrentPackageFragment() {
         // Required empty public constructor
     }
 
@@ -40,11 +40,11 @@ public class CurrentPackageFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment CurrentPackageFragment.
+     * @return A new instance of fragment ShopCurrentPackageFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static CurrentPackageFragment newInstance(String param1, String param2) {
-        CurrentPackageFragment fragment = new CurrentPackageFragment();
+    public static ShopCurrentPackageFragment newInstance(String param1, String param2) {
+        ShopCurrentPackageFragment fragment = new ShopCurrentPackageFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -65,7 +65,7 @@ public class CurrentPackageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_current_package, container, false);
+        return inflater.inflate(R.layout.fragment_shop_current_package, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

@@ -104,14 +104,4 @@
         android:layout_marginEnd="12dp"
         android:text="TextView" />
 
-    <Button
-        android:id="@+id/buttonRecieve"
-        android:layout_width="wrap_content"
-        android:layout_height="31dp"
-        android:layout_below="@id/idPackage"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="5dp"
-        android:text="Nhận"
-        android:textSize="10sp" />
 </android.widget.RelativeLayout>
