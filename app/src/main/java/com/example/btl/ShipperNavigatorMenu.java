@@ -10,14 +10,13 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-import com.example.btl.fragments.CreatePackageFragment;
 import com.example.btl.fragments.PackageFilterFragment;
 import com.example.btl.fragments.PackageListFragment;
 import com.example.btl.fragments.ShopCurrentPackageFragment;
 import com.example.btl.fragments.ShopProfileFragment;
 import com.example.btl.fragments.UserProfileFragment;
 
-public class ShipperNavigatorMenu extends AppCompatActivity implements ShopProfileFragment.OnFragmentInteractionListener, ShopCurrentPackageFragment.OnFragmentInteractionListener, PackageListFragment.OnFragmentInteractionListener, CreatePackageFragment.OnFragmentInteractionListener, UserProfileFragment.OnFragmentInteractionListener, PackageFilterFragment.OnFragmentInteractionListener {
+public class ShipperNavigatorMenu extends AppCompatActivity implements ShopProfileFragment.OnFragmentInteractionListener, ShopCurrentPackageFragment.OnFragmentInteractionListener, PackageListFragment.OnFragmentInteractionListener, UserProfileFragment.OnFragmentInteractionListener, PackageFilterFragment.OnFragmentInteractionListener {
 
     private ActionBar toolbar;
 

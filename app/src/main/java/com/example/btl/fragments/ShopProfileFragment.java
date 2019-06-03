@@ -12,6 +12,7 @@ import android.widget.Button;
 
 import com.example.btl.R;
 import com.example.btl.ShipperNavigatorMenu;
+import com.example.btl.UserInformation;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,6 +28,7 @@ public class ShopProfileFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private Button changeRoleButton;
+    private Button toProfileButton;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -73,6 +75,14 @@ public class ShopProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(view.getContext(), ShipperNavigatorMenu.class);
+                view.getContext().startActivity(intent);
+            }
+        });
+        toProfileButton = view.findViewById(R.id.toProfileButton);
+        toProfileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(view.getContext(), UserInformation.class);
                 view.getContext().startActivity(intent);
             }
         });

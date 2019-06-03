@@ -10,14 +10,14 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-import com.example.btl.fragments.CreatePackageFragment;
+import com.example.btl.fragments.MapFragment;
 import com.example.btl.fragments.ShopCurrentPackageFragment;
 import com.example.btl.fragments.PackageFilterFragment;
 import com.example.btl.fragments.PackageListFragment;
 import com.example.btl.fragments.ShopProfileFragment;
 import com.example.btl.fragments.UserProfileFragment;
 
-public class ShopNavigatorMenu extends AppCompatActivity implements ShopProfileFragment.OnFragmentInteractionListener, UserProfileFragment.OnFragmentInteractionListener, ShopCurrentPackageFragment.OnFragmentInteractionListener, CreatePackageFragment.OnFragmentInteractionListener, PackageListFragment.OnFragmentInteractionListener, PackageFilterFragment.OnFragmentInteractionListener {
+public class ShopNavigatorMenu extends AppCompatActivity implements MapFragment.OnFragmentInteractionListener, ShopProfileFragment.OnFragmentInteractionListener, UserProfileFragment.OnFragmentInteractionListener, ShopCurrentPackageFragment.OnFragmentInteractionListener, PackageListFragment.OnFragmentInteractionListener, PackageFilterFragment.OnFragmentInteractionListener {
 
     private ActionBar toolbar;
 
@@ -29,8 +29,8 @@ public class ShopNavigatorMenu extends AppCompatActivity implements ShopProfileF
             Fragment fragment;
             switch (item.getItemId()) {
                 case R.id.createPackageIcon:
-                    toolbar.setTitle("Create");
-                    fragment = new CreatePackageFragment();
+                    toolbar.setTitle("Map");
+                    fragment = new MapFragment();
                     loadFragment(fragment);
                     return true;
                 case R.id.shopActivePackageIcon:

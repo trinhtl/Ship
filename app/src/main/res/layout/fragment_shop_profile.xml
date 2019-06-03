@@ -9,15 +9,33 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:text="Chuyển giữa shipper và shop" />
+        android:layout_marginTop="500dp"
+        android:text="Chuyển giữa shipper và shop"
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/changeToShipperButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="490dp"
+        android:text="Đổi" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="100dp"
+        android:text="User"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/toProfileButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="200dp"
-        android:layout_marginTop="85dp"
-        android:text="Button" />
+        android:layout_marginTop="100dp"
+        android:text="Thông tin cá nhân" />
 
 </FrameLayout>

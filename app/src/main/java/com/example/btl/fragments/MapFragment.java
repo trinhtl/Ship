@@ -3,26 +3,22 @@ package com.example.btl.fragments;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import com.example.btl.R;
-import com.example.btl.dao.Package;
-import com.example.btl.dao.PackageDAOImpl;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link CreatePackageFragment.OnFragmentInteractionListener} interface
+ * {@link OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link CreatePackageFragment#newInstance} factory method to
+ * Use the {@link MapFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CreatePackageFragment extends Fragment {
+public class MapFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -34,7 +30,7 @@ public class CreatePackageFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public CreatePackageFragment() {
+    public MapFragment() {
         // Required empty public constructor
     }
 
@@ -44,11 +40,11 @@ public class CreatePackageFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment CreatePackageFragment.
+     * @return A new instance of fragment MapFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static CreatePackageFragment newInstance(String param1, String param2) {
-        CreatePackageFragment fragment = new CreatePackageFragment();
+    public static MapFragment newInstance(String param1, String param2) {
+        MapFragment fragment = new MapFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -63,35 +59,13 @@ public class CreatePackageFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, final ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        final View view = inflater.inflate(R.layout.fragment_create_package, container, false);
-        Button createBtn = (Button) view.findViewById(R.id.btnTao);
-        createBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                TextInputEditText sendAddress = (TextInputEditText) view.findViewById(R.id.create_send_address);
-                TextInputEditText recieveAddress = (TextInputEditText) view.findViewById(R.id.create_recieve_address);
-                TextInputEditText shipCost = (TextInputEditText) view.findViewById(R.id.create_ship_cost);
-                TextInputEditText advanceMoney = (TextInputEditText) view.findViewById(R.id.create_advance_money);
-                TextInputEditText description = (TextInputEditText) view.findViewById(R.id.create_description);
-                Package newPackage = new Package(1, sendAddress.getText().toString().trim(), recieveAddress.getText().toString().trim(), shipCost.getText().toString().trim(), advanceMoney.getText().toString().trim(), description.getText().toString().trim());
-                System.out.println(newPackage.toString());
-                System.out.println(newPackage.getSendAddress().length() + ">" + newPackage.getRecieveAddress().length() + ">" + newPackage.getShipCost().length());
-                if (newPackage.getSendAddress().length() > 0 && newPackage.getRecieveAddress().length() > 0 && newPackage.getShipCost().length() > 0){
-                    System.out.println("create a package ");
-                    createPackage(newPackage);
-                    getFragmentManager().beginTransaction().replace(R.id.shopFrame, new ShopCurrentPackageFragment()).addToBackStack(null).commit();
-                }
-
-            }
-        });
-        return view;
+        return inflater.inflate(R.layout.fragment_map, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -131,9 +105,5 @@ public class CreatePackageFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
-    }
-    public void  createPackage(Package p){
-        PackageDAOImpl packageDAO = new PackageDAOImpl();
-        packageDAO.insert(p);
     }
 }

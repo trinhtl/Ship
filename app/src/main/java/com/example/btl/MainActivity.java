@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.btl.dao.UserDAOImpl;
-import com.example.btl.fragments.CreatePackageFragment;
 import com.example.btl.fragments.ShopCurrentPackageFragment;
 import com.example.btl.fragments.PackageFilterFragment;
 import com.example.btl.fragments.PackageListFragment;
@@ -17,7 +16,7 @@ import com.example.btl.fragments.UserProfileFragment;
 
 import io.socket.client.Socket;
 
-public class MainActivity extends AppCompatActivity implements UserProfileFragment.OnFragmentInteractionListener, PackageListFragment.OnFragmentInteractionListener, CreatePackageFragment.OnFragmentInteractionListener, ShopCurrentPackageFragment.OnFragmentInteractionListener, PackageFilterFragment.OnFragmentInteractionListener, ShopProfileFragment.OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements UserProfileFragment.OnFragmentInteractionListener, PackageListFragment.OnFragmentInteractionListener, ShopCurrentPackageFragment.OnFragmentInteractionListener, PackageFilterFragment.OnFragmentInteractionListener, ShopProfileFragment.OnFragmentInteractionListener {
 
     Socket socket;
 
