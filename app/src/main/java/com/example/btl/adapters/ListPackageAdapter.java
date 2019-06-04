@@ -47,10 +47,10 @@ public class ListPackageAdapter extends BaseAdapter {
             holder = new ViewHolder();
             holder.avatar = (ImageView) convertView.findViewById(R.id.avatar);
             holder.nickname = (TextView) convertView.findViewById(R.id.nickname);
-            holder.advanceMoney = (TextView) convertView.findViewById(R.id.advanceMoney);
-            holder.shipCost = (TextView) convertView.findViewById(R.id.shipCost);
-            holder.sendAddress = (TextView) convertView.findViewById(R.id.sendAddress);
-            holder.recieveAddress = (TextView) convertView.findViewById(R.id.recieveAddress);
+            holder.advanceMoney = (TextView) convertView.findViewById(R.id.advanceMoneyPopup);
+            holder.shipCost = (TextView) convertView.findViewById(R.id.shipCostPopup);
+            holder.sendAddress = (TextView) convertView.findViewById(R.id.sendAddressPopup);
+            holder.recieveAddress = (TextView) convertView.findViewById(R.id.recieveAddressPopup);
             holder.description = (TextView) convertView.findViewById(R.id.description);
             holder.idPackage = (TextView) convertView.findViewById(R.id.idPackage);
             holder.createTime = (TextView) convertView.findViewById(R.id.createTime);
