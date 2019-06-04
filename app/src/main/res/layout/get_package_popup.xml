@@ -15,7 +15,7 @@
 
     <TextView
         android:layout_marginTop="15dp"
-        android:id="@+id/diem_di"
+        android:id="@+id/sendAddress"
         android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:layout_gravity="end"
@@ -25,7 +25,7 @@
         android:textColor="#000000" />
     <TextView
         android:layout_marginTop="10dp"
-        android:id="@+id/diem_den"
+        android:id="@+id/recieveAddress"
         android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:layout_gravity="end"
@@ -40,7 +40,7 @@
         android:orientation="horizontal"
         android:layout_height="70dp">
         <TextView
-            android:id="@+id/tien-ung"
+            android:id="@+id/advanceMoney"
             android:layout_marginLeft="5dp"
             android:layout_width="130dp"
             android:layout_height="50dp"
@@ -50,7 +50,7 @@
             android:text="Tiền ứng" />
 
         <TextView
-            android:id="@+id/tien-ship"
+            android:id="@+id/shipCost"
             android:layout_marginLeft="55dp"
             android:layout_width="130dp"
             android:layout_height="50dp"
@@ -65,7 +65,7 @@
         android:layout_width="fill_parent"
         android:layout_height="70dp">
         <Button
-            android:id="@+id/btn_huydon"
+            android:id="@+id/recievePackageButton"
             android:gravity="center"
             android:layout_gravity="center"
             android:layout_width="100dp"
@@ -76,7 +76,7 @@
             android:textColor="#ffb916" />
 
         <Button
-            android:id="@+id/btn_boqua"
+            android:id="@+id/cancelRecieveButton"
             android:gravity="center"
             android:layout_gravity="center"
             android:layout_width="100dp"

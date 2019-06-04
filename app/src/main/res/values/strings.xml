@@ -12,11 +12,11 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_activity_shop_navigator_menu">ShopNavigatorMenu</string>
-    <string name="map_api_key">AIzaSyAJx_OghzOOOkgcvWYRSdmfkhcSXdns5bI</string>
+    <string name="map_api_key">AIzaSyDQOTyEhbrgZQmNBOE8nVnrINelM-cVAuw</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="titleReg">Tham gia cùng chúng tôi</string>
     <string name="titleProfile">Thông tin cá nhân</string>
-
+    <string name="support">Hỗ trợ</string>
 </resources>

@@ -40,7 +40,7 @@
         android:layout_width="342dp"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="53dp"
+        android:layout_marginTop="20dp"
         android:text="@string/titleReg"
         android:textAlignment="textStart"
         android:textColor="@android:color/holo_orange_light"
@@ -69,7 +69,7 @@
         android:id="@+id/password"
         android:layout_width="321dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Mật khẩu"
         android:inputType="textPassword"
@@ -79,10 +79,10 @@
         app:layout_constraintTop_toBottomOf="@+id/phone" />
 
     <Button
-        android:id="@+id/change"
+        android:id="@+id/loginButton"
         android:layout_width="220dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
 
         android:background="@android:color/holo_orange_light"
         android:text="Đăng nhập"
@@ -94,5 +94,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password" />
 
+    <Button
+        android:id="@+id/signupButton"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="110dp"
+        android:background="@android:color/holo_orange_light"
+        android:text="Đăng ký"
+        android:textAlignment="center"
+        android:textColor="?attr/colorBackgroundFloating"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
 </android.support.constraint.ConstraintLayout>

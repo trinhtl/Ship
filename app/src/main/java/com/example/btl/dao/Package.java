@@ -9,6 +9,7 @@ public class Package {
     private String recieveAddress;
     private String description;
 
+
     public Package(int idOwner, String sendAddress, String recieveAddress, String shipCost, String advanceMoney, String description) {
         this.idOwner = idOwner;
         this.shipCost = shipCost;
@@ -27,6 +28,8 @@ public class Package {
         this.recieveAddress = recieveAddress;
         this.description = description;
     }
+
+
 
     public int getId() {
         return id;

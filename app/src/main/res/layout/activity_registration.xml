@@ -92,12 +92,11 @@
         tools:layout_editor_absoluteY="367dp" />
 
     <Button
-        android:id="@+id/change"
+        android:id="@+id/loginButton"
         android:layout_width="220dp"
         android:layout_height="0dp"
         android:layout_marginBottom="20dp"
         android:background="@android:color/holo_orange_light"
-
         android:text="Đăng ký"
         android:textAlignment="center"
         android:textColor="?attr/colorBackgroundFloating"
@@ -111,7 +110,7 @@
         android:id="@+id/cancel"
         android:layout_width="220dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginBottom="150dp"
         android:background="?attr/colorButtonNormal"
         android:text="Hủy"
         android:textColor="?attr/colorBackgroundFloating"

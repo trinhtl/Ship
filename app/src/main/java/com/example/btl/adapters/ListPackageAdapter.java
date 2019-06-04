@@ -1,4 +1,4 @@
-package com.example.btl;
+package com.example.btl.adapters;
 
 import android.content.Context;
 import android.util.Log;
@@ -9,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.btl.R;
 import com.example.btl.dao.Item;
 
 import java.util.List;
@@ -47,10 +48,10 @@ public class ListPackageAdapter extends BaseAdapter {
             holder = new ViewHolder();
             holder.avatar = (ImageView) convertView.findViewById(R.id.avatar);
             holder.nickname = (TextView) convertView.findViewById(R.id.nickname);
-            holder.advanceMoney = (TextView) convertView.findViewById(R.id.advanceMoneyPopup);
-            holder.shipCost = (TextView) convertView.findViewById(R.id.shipCostPopup);
-            holder.sendAddress = (TextView) convertView.findViewById(R.id.sendAddressPopup);
-            holder.recieveAddress = (TextView) convertView.findViewById(R.id.recieveAddressPopup);
+            holder.advanceMoney = (TextView) convertView.findViewById(R.id.advanceMoney);
+            holder.shipCost = (TextView) convertView.findViewById(R.id.shipCost);
+            holder.sendAddress = (TextView) convertView.findViewById(R.id.sendAddress);
+            holder.recieveAddress = (TextView) convertView.findViewById(R.id.recieveAddress);
             holder.description = (TextView) convertView.findViewById(R.id.description);
             holder.idPackage = (TextView) convertView.findViewById(R.id.idPackage);
             holder.createTime = (TextView) convertView.findViewById(R.id.createTime);

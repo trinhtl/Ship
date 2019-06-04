@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.btl.MainActivity;
 import com.example.btl.R;
 import com.example.btl.ShipperNavigatorMenu;
 import com.example.btl.UserInformation;
@@ -29,6 +30,7 @@ public class ShopProfileFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     private Button changeRoleButton;
     private Button toProfileButton;
+    private Button logoutButton;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -69,21 +71,29 @@ public class ShopProfileFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        final View view = inflater.inflate(R.layout.fragment_shop_profile, container, false);
-        changeRoleButton = view.findViewById(R.id.changeToShipperButton);
+        final View view = inflater.inflate(R.layout.fragment_user_profile, container, false);
+        changeRoleButton = view.findViewById(R.id.changeRoleButton);
         changeRoleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(view.getContext(), ShipperNavigatorMenu.class);
-                view.getContext().startActivity(intent);
+                Intent intent1 = new Intent(view.getContext(), ShipperNavigatorMenu.class);
+                view.getContext().startActivity(intent1);
             }
         });
         toProfileButton = view.findViewById(R.id.toProfileButton);
         toProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(view.getContext(), UserInformation.class);
-                view.getContext().startActivity(intent);
+                Intent intent2 = new Intent(view.getContext(), UserInformation.class);
+                view.getContext().startActivity(intent2);
+            }
+        });
+        logoutButton = view.findViewById(R.id.logoutButton);
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent3 = new Intent(view.getContext(), MainActivity.class);
+                view.getContext().startActivity(intent3);
             }
         });
         // Inflate the layout for this fragment

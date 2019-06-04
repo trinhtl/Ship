@@ -13,7 +13,13 @@ public class User {
         this.password = password;
         this.avatar = "a";
     }
-
+    public User(int id, String name, String phone, String password, String avatar) {
+        this.id = id;
+        this.name = name;
+        this.phone = phone;
+        this.password = password;
+        this.avatar = "a";
+    }
     public int getId() {
         return id;
     }
@@ -52,5 +58,10 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return id + "-" + name + "-" + phone + "-" + password + "-" + avatar;
     }
 }

@@ -1,6 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</android.support.constraint.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="410dp"
+        android:layout_height="wrap_content"
+        android:background="@color/Orange"
+        android:gravity="left"
+        android:text="Đơn App"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-2dp"
+        android:layout_marginTop="0dp"/>
+
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="411dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/Gray"
+        android:gravity="left"
+        android:text="Trạng thái đang trên đường lấy hàng"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="16sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-1dp"
+        tools:layout_editor_absoluteY="26dp" />
+
+    <TextView
+        android:id="@+id/begin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="78dp"
+        android:drawableStart="@drawable/ic_my_location_black_24dp"
+        android:drawablePadding="5dp"
+        android:ems="10"
+        android:hint="Điểm xuất phát"
+        android:inputType="text"
+        tools:layout_editor_absoluteX="34dp"
+        tools:layout_editor_absoluteY="152dp" />
+
+    <TextView
+        android:id="@+id/destination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="128dp"
+        android:drawableStart="@drawable/ic_place_black_24dp"
+        android:drawablePadding="5dp"
+        android:ems="10"
+        android:hint="Điểm đến"
+        android:inputType="text"
+        android:textColor="@color/colorPrimaryDark"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="34dp"
+        tools:layout_editor_absoluteY="205dp" />
+
+    <TextView
+        android:id="@+id/phi"
+        android:layout_width="111dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="72dp"
+        android:layout_marginTop="170dp"
+        android:background="@color/Gray"
+
+        android:gravity="center"
+        android:text="Phí Ship    "
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="323dp" />
+
+    <TextView
+        android:id="@+id/tienung"
+        android:layout_width="111dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="222dp"
+        android:layout_marginTop="170dp"
+        android:background="@color/Gray"
+        android:gravity="center"
+
+        android:text="Tiền ứng"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="232dp"
+        tools:layout_editor_absoluteY="320dp" />
+
+    <TextView
+        android:id="@+id/ShipMoney"
+        android:layout_width="111dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="72dp"
+        android:layout_marginTop="220dp"
+        android:ems="10"
+        android:hint="20.000đ"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        android:textColor="@color/Orange"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="370dp" />
+
+    <TextView
+        android:id="@+id/Money"
+        android:layout_width="111dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="222dp"
+        android:layout_marginTop="220dp"
+        android:ems="10"
+        android:hint="0đ"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        android:textColor="@color/Orange"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="230dp"
+        tools:layout_editor_absoluteY="370dp" />
+
+    <TextView
+        android:id="@+id/sendUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="300dp"
+        android:drawableRight="@drawable/calldp"
+        android:drawablePadding="5dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Người gửi"
+        tools:layout_editor_absoluteX="31dp"
+        tools:layout_editor_absoluteY="438dp" />
+
+    <TextView
+        android:id="@+id/receiveUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="350dp"
+        android:drawableRight="@drawable/calldp"
+        android:drawablePadding="5dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Người nhận"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="525dp" />
+
+    <Button
+        android:id="@+id/nhận"
+        android:layout_width="115dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="400dp"
+        android:background="@color/Orange"
+        android:text="Đã lấy hàng"
+        android:textColor="@color/colorPrimary"
+        tools:layout_editor_absoluteX="56dp"
+        tools:layout_editor_absoluteY="618dp" />
+
+    <Button
+        android:id="@+id/huy"
+        android:layout_width="115dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginLeft="250dp"
+        android:layout_marginTop="400dp"
+        android:background="@color/Gray"
+        android:text="Hủy"
+        tools:layout_editor_absoluteX="212dp"
+        tools:layout_editor_absoluteY="618dp" />
+
+
+</android.support.design.widget.CoordinatorLayout>

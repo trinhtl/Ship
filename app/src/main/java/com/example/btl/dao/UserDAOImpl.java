@@ -64,4 +64,26 @@ public class UserDAOImpl implements UserDAO {
     public void delete(User user) {
 
     }
+
+    @Override
+    public User validate(String phone, String password) {
+        socket.connect();
+        socket.emit("user/validate", phone, password);
+        final User[] userLogin = new User[1];
+        System.out.println("One");
+        socket.on("user/validate", new Emitter.Listener() {
+            @Override
+            public void call(final Object... args) {
+                System.out.println("go");
+                System.out.println("Running....");
+                JSONObject data = (JSONObject) args[0];
+                userLogin[0] = new User(data.optInt("id"),
+                        data.optString("name"),
+                        data.optString("phone"),
+                        data.optString("password"),
+                        data.optString("avatar"));
+            }
+        });
+        return userLogin[0];
+    }
 }

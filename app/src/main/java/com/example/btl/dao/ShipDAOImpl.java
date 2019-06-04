@@ -68,12 +68,32 @@ public class ShipDAOImpl implements ShipDAO {
     }
 
     @Override
-    public void update(Ship ship) {
-
+    public void update(int idPackage, int idShipper, String status) {
+        socket.connect();
+        socket.emit("ship/update/shipper/status", idPackage, idShipper, status);
     }
 
     @Override
     public void delete(Ship ship) {
 
     }
+
+    @Override
+    public void cancel(int idPackage) {
+        socket.connect();
+        socket.emit("ship/shipper/cancel", idPackage);
+    }
+
+    @Override
+    public void recieve(int idPakage, int idShipper) {
+        socket.connect();
+        socket.emit("ship/recieve", idPakage, idShipper);
+    }
+
+    @Override
+    public void shipped(int idPackage, String shippedAt) {
+        socket.connect();
+        socket.emit("ship/shipped", idPackage, shippedAt);
+    }
+
 }

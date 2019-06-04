@@ -17,16 +17,16 @@
         android:textSize="25dp" />
 
 
-    <android.support.design.widget.TextInputEditText
-        android:id="@+id/create_send_address"
+    <TextView
+        android:id="@+id/create_recieve_address"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="180dp"
         android:hint="Nhập nơi nhận hàng" />
 
-    <android.support.design.widget.TextInputEditText
-        android:id="@+id/create_recieve_address"
+    <TextView
+        android:id="@+id/create_send_address"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginLeft="50dp"
@@ -56,13 +56,31 @@
         android:layout_marginLeft="50dp"
         android:layout_marginTop="380dp"
         android:hint="Mô tả" />
-    <Button
-        android:id="@+id/btnTao"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="250dp"
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="50dp"
         android:layout_marginTop="430dp"
-        android:text="Tạo" />
+        android:layout_marginLeft="50dp" >
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="100dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="25dp"
+            android:background="#FFFFFF"
+            android:text="Trở về"
+            android:textColor="#ffb916" />
+
+        <Button
+            android:id="@+id/btnCreate"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:textColor="#ffb916"
+            android:background="#FFFFFF"
+            android:layout_marginLeft="45dp"
+            android:text="Tạo" />
+
+    </LinearLayout>
 
     <TextView
         android:layout_width="200dp"

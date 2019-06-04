@@ -1,14 +1,25 @@
 package com.example.btl.fragments;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.example.btl.R;
+import com.example.btl.adapters.ActivePackageAdapter;
+import com.example.btl.dao.CallbackTest;
+import com.example.btl.dao.Package;
+import com.example.btl.dao.PackageDAOImpl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.example.btl.MainActivity.MyPREFERENCES;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,13 +34,13 @@ public class ShipperCurrentPackageFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
+    SharedPreferences sharedpreferences;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
+    List<Package> activePackageListData;
     private OnFragmentInteractionListener mListener;
-
+    public ActivePackageAdapter activePackageAdapter;
     public ShipperCurrentPackageFragment() {
         // Required empty public constructor
     }
@@ -59,13 +70,20 @@ public class ShipperCurrentPackageFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        sharedpreferences = getActivity().getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_shipper_current_package, container, false);
+        View view = inflater.inflate(R.layout.fragment_shipper_current_package, container, false);
+        activePackageListData = new ArrayList<Package>();
+        activePackageListData = getListData(this);
+        final ListView activePackageList = view.findViewById(R.id.listActivePackage);
+        activePackageAdapter = new ActivePackageAdapter(activePackageListData, getActivity());
+        activePackageList.setAdapter(activePackageAdapter);
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -105,5 +123,13 @@ public class ShipperCurrentPackageFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+    List<Package> getListData(ShipperCurrentPackageFragment pk){
+        List<Package> list = new ArrayList<Package>();
+        PackageDAOImpl packageDAO = new PackageDAOImpl();
+        CallbackTest cb = new CallbackTest();
+        list = packageDAO.getByIdShipper(pk, sharedpreferences.getInt("id", 1));
+        System.out.println("return: " + list);
+        return list;
     }
 }

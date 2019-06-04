@@ -10,13 +10,15 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
+import com.example.btl.fragments.MapFragment;
 import com.example.btl.fragments.PackageFilterFragment;
 import com.example.btl.fragments.PackageListFragment;
+import com.example.btl.fragments.ShipperCurrentPackageFragment;
 import com.example.btl.fragments.ShopCurrentPackageFragment;
 import com.example.btl.fragments.ShopProfileFragment;
 import com.example.btl.fragments.UserProfileFragment;
 
-public class ShipperNavigatorMenu extends AppCompatActivity implements ShopProfileFragment.OnFragmentInteractionListener, ShopCurrentPackageFragment.OnFragmentInteractionListener, PackageListFragment.OnFragmentInteractionListener, UserProfileFragment.OnFragmentInteractionListener, PackageFilterFragment.OnFragmentInteractionListener {
+public class ShipperNavigatorMenu extends AppCompatActivity implements ShipperCurrentPackageFragment.OnFragmentInteractionListener, MapFragment.OnFragmentInteractionListener, ShopProfileFragment.OnFragmentInteractionListener, ShopCurrentPackageFragment.OnFragmentInteractionListener, PackageListFragment.OnFragmentInteractionListener, UserProfileFragment.OnFragmentInteractionListener, PackageFilterFragment.OnFragmentInteractionListener {
 
     private ActionBar toolbar;
 
@@ -29,7 +31,7 @@ public class ShipperNavigatorMenu extends AppCompatActivity implements ShopProfi
             switch (item.getItemId()) {
                 case R.id.activePackageIcon:
                     toolbar.setTitle("Active Package");
-                    fragment = new ShopCurrentPackageFragment();
+                    fragment = new ShipperCurrentPackageFragment();
                     loadFragment(fragment);
                     return true;
                 case R.id.listPackageIcon:
@@ -60,7 +62,7 @@ public class ShipperNavigatorMenu extends AppCompatActivity implements ShopProfi
         toolbar = getSupportActionBar();
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.shipperNavigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        navigation.setSelectedItemId(R.id.activePackageIcon);
+        navigation.setSelectedItemId(R.id.listPackageIcon);
 
     }
     private void loadFragment(Fragment fragment){

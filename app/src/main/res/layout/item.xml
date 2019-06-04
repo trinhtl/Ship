@@ -6,102 +6,121 @@
 
     <ImageView
         android:id="@+id/avatar"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="5dp"
+        android:layout_width="98dp"
+        android:layout_height="95dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="30dp"
         android:layout_marginRight="5dp"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        app:srcCompat="@drawable/sun" />
 
     <TextView
         android:id="@+id/nickname"
         android:layout_width="320dp"
-        android:layout_height="20dp"
+        android:layout_height="30dp"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="5dp"
         android:layout_toRightOf="@id/avatar"
-        android:text="TextView" />
+        android:background="@drawable/vien"
+        android:text="TextView"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/advanceMoney"
         android:layout_width="320dp"
-        android:layout_height="20dp"
+        android:layout_height="30dp"
         android:layout_below="@id/nickname"
         android:layout_alignParentEnd="true"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="3dp"
-        android:layout_marginEnd="11dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="5dp"
         android:layout_toRightOf="@id/avatar"
+        android:background="@color/Gray"
         android:text="TextView" />
 
     <TextView
         android:id="@+id/shipCost"
         android:layout_width="320dp"
-        android:layout_height="20dp"
+        android:layout_height="30dp"
         android:layout_below="@id/advanceMoney"
         android:layout_alignParentEnd="true"
-        android:layout_marginLeft="5dp"
+        android:layout_marginLeft="0dp"
         android:layout_marginTop="3dp"
-        android:layout_marginEnd="11dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="5dp"
         android:layout_toRightOf="@id/avatar"
+        android:background="@drawable/vien"
         android:text="TextView" />
 
     <TextView
         android:id="@+id/sendAddress"
-        android:layout_width="395dp"
-        android:layout_height="20dp"
+        android:layout_width="380dp"
+        android:layout_height="30dp"
         android:layout_below="@id/advanceMoney"
         android:layout_alignParentEnd="true"
-        android:layout_marginLeft="6dp"
-        android:layout_marginTop="26dp"
-        android:layout_marginEnd="11dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/Gray"
         android:text="TextView" />
 
     <TextView
         android:id="@+id/idPackage"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_width="134dp"
+        android:layout_height="32dp"
         android:layout_below="@id/avatar"
         android:layout_alignParentEnd="true"
-        android:layout_marginLeft="-67dp"
-        android:layout_marginTop="74dp"
-        android:layout_marginEnd="257dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="133dp"
+
+        android:layout_marginEnd="255dp"
+        android:background="@drawable/vien"
         android:text="TextView"
-        android:textSize="10sp" />
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/createTime"
-        android:layout_width="240dp"
-        android:layout_height="wrap_content"
+        android:layout_width="223dp"
+        android:layout_height="32dp"
         android:layout_below="@id/avatar"
         android:layout_alignParentEnd="true"
-        android:layout_marginLeft="-67dp"
-        android:layout_marginTop="74dp"
-        android:layout_marginEnd="11dp"
+
+        android:layout_marginTop="133dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/vien"
         android:text="TextView"
-        android:textSize="10sp" />
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/recieveAddress"
-        android:layout_width="395dp"
-        android:layout_height="20dp"
+        android:layout_width="379dp"
+        android:layout_height="30dp"
         android:layout_below="@id/avatar"
         android:layout_alignParentEnd="true"
-        android:layout_marginLeft="6dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="11dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="49dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/vien"
         android:text="TextView" />
 
     <TextView
         android:id="@+id/description"
-        android:layout_width="395dp"
-        android:layout_height="20dp"
+        android:layout_width="379dp"
+        android:layout_height="31dp"
         android:layout_below="@id/avatar"
         android:layout_alignParentEnd="true"
-        android:layout_marginLeft="6dp"
-        android:layout_marginTop="51dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="91dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/Gray"
         android:text="TextView" />
 
 </android.widget.RelativeLayout>

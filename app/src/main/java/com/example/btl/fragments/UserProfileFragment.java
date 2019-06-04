@@ -2,6 +2,7 @@ package com.example.btl.fragments;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,10 +10,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
+import com.example.btl.MainActivity;
 import com.example.btl.R;
 import com.example.btl.ShopNavigatorMenu;
 import com.example.btl.UserInformation;
+
+import static com.example.btl.MainActivity.MyPREFERENCES;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,6 +34,9 @@ public class UserProfileFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     private Button changeRoleButton;
     private Button toProfileButton;
+    private Button logoutButton;
+    private TextView userName;
+    SharedPreferences sharedpreferences;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -70,20 +78,31 @@ public class UserProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_user_profile, container, false);
+        sharedpreferences = getActivity().getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+        userName = view.findViewById(R.id.nameUser);
+        userName.setText(sharedpreferences.getString("name", "Anonymous User"));
         changeRoleButton = view.findViewById(R.id.changeRoleButton);
         changeRoleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(view.getContext(), ShopNavigatorMenu.class);
-                view.getContext().startActivity(intent);
+                Intent intent1 = new Intent(view.getContext(), ShopNavigatorMenu.class);
+                view.getContext().startActivity(intent1);
             }
         });
         toProfileButton = view.findViewById(R.id.toProfileButton);
         toProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(view.getContext(), UserInformation.class);
-                view.getContext().startActivity(intent);
+                Intent intent2 = new Intent(view.getContext(), UserInformation.class);
+                view.getContext().startActivity(intent2);
+            }
+        });
+        logoutButton = view.findViewById(R.id.logoutButton);
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent3 = new Intent(view.getContext(), MainActivity.class);
+                view.getContext().startActivity(intent3);
             }
         });
         // Inflate the layout for this fragment

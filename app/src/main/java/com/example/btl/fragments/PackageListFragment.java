@@ -1,30 +1,37 @@
 package com.example.btl.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.PopupWindow;
+import android.widget.TextView;
 
-import com.example.btl.ListPackageAdapter;
+import com.example.btl.adapters.ListPackageAdapter;
 import com.example.btl.R;
+import com.example.btl.ShipperNavigatorMenu;
 import com.example.btl.dao.CallbackTest;
 import com.example.btl.dao.Item;
 import com.example.btl.dao.ItemDAOImpl;
+import com.example.btl.dao.ShipDAOImpl;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import io.socket.client.Socket;
+
+import static android.content.Context.LAYOUT_INFLATER_SERVICE;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -46,6 +53,7 @@ public class PackageListFragment extends Fragment {
     List<Item> pakageListData;
     Socket socket;
     public ListPackageAdapter listPackageAdapter;
+    PopupWindow packagePopupWindow;
     private OnFragmentInteractionListener mListener;
 
     public PackageListFragment() {
@@ -98,20 +106,65 @@ public class PackageListFragment extends Fragment {
         pakageList.setAdapter(listPackageAdapter);
         pakageList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, final long id) {
+
                 System.out.println("Click");
-                Item item = (Item)pakageList.getItemAtPosition(position);
+                final Item item = (Item)pakageList.getItemAtPosition(position);
                 System.out.println(item.toString());
+                LayoutInflater inflater = (LayoutInflater) parent.getContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+
+                // Inflate the custom layout/view
+                View customView = inflater.inflate(R.layout.get_package_popup,null);
+                TextView sendAddress = customView.findViewById(R.id.sendAddress);
+                TextView recieveAddress = customView.findViewById(R.id.recieveAddress);
+                TextView advanceMoney = customView.findViewById(R.id.advanceMoney);
+                TextView shipCost = customView.findViewById(R.id.shipCost);
+                sendAddress.setText("Từ: " + item.getSendAddress());
+                recieveAddress.setText("Đến: " + item.getRecieveAddress());
+                advanceMoney.setText("Ứng: " + item.getAdvanceMoney());
+                shipCost.setText("Phí ship: " + item.getShipCost());
+                // Initialize a new instance of popup window
+                packagePopupWindow = new PopupWindow(
+                        customView,
+                        700,
+                        800
+                );
+
+                // Set an elevation value for popup window
+                // Call requires API level 21
+                if(Build.VERSION.SDK_INT>=21){
+                    packagePopupWindow.setElevation(5.0f);
+                }
+
+                // Get a reference for the custom view close button
+                Button recievePackageButton = (Button) customView.findViewById(R.id.recievePackageButton);
+                Button cancelRecieveButton = (Button) customView.findViewById(R.id.cancelRecieveButton);
+                //  a click listener for the popup window close button
+                cancelRecieveButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        // Dismiss the popup window
+                        packagePopupWindow.dismiss();
+                    }
+                });
+                recievePackageButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        System.out.println("Want to recieve");
+                        ShipDAOImpl shipDAO = new ShipDAOImpl();
+                        shipDAO.recieve(item.getId(), 1);
+                        Intent intent = new Intent(getContext(), ShipperNavigatorMenu.class);
+                        startActivity(intent);
+                    }
+                });
+
+                // Finally, show the popup window at the center location of root relative layout
+                packagePopupWindow.showAtLocation(getActivity().findViewById(R.id.popupLayout), Gravity.CENTER,0,0);
             }
         });
         return view;
     }
 
-
-    public List<Item> callbackView(List<Item> itemList){
-        System.out.println("test cb...." + itemList);
-        return itemList;
-    }
 
     private List<Item> getListData(PackageListFragment pk){
         Log.i("getList", "get data");
@@ -121,17 +174,6 @@ public class PackageListFragment extends Fragment {
         list = itemDAO.getAll(pk);
         System.out.println("return: " + list);
         return list;
-    }
-    private List<Item> getListData2(){
-        Log.i("getList", "get data");
-        List<Item> list = new ArrayList<Item>();
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        Date date = new Date();
-        Item first = new Item(1, "a", "Jack", "50k", "20k", String.valueOf(new Date(dateFormat.format(date))), "181 Xuân Thủy, Cầu Giấy", "18 Ba Đình", "Cần gấp");
-        list.add(first);
-        Item second = new Item(2, null, "Mary", "50k", "20k", String.valueOf(new Date(dateFormat.format(date))), "181 Xuân Thủy, Cầu Giấy", "18 Ba Đình", null);
-        list.add(second);
-        return  list;
     }
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {

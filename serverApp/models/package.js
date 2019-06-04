@@ -36,6 +36,18 @@ var Package = sequelize.define('package', {
 		type: Sequelize.STRING,
 		allowNull: true
 	},
+	idShipper: {
+		type: Sequelize.INTEGER,
+		allowNull: true
+	},
+	status: {
+		type: Sequelize.STRING,
+		allowNull: true
+	},
+	shippedAt: {
+		type: Sequelize.DATE,
+		allowNull: true
+	},
 	createdAt: {
 		type: Sequelize.DATE,
 		allowNull: true
