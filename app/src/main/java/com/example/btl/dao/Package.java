@@ -8,7 +8,24 @@ public class Package {
     private String sendAddress;
     private String recieveAddress;
     private String description;
+    private User shipper;
+    private User owner;
 
+    public User getShipper() {
+        return shipper;
+    }
+
+    public void setShipper(User shipper) {
+        this.shipper = shipper;
+    }
+
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
 
     public Package(int idOwner, String sendAddress, String recieveAddress, String shipCost, String advanceMoney, String description) {
         this.idOwner = idOwner;

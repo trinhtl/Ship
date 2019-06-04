@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements Map2Fragment.OnFr
         super.onCreate(savedInstanceState);
         sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         setContentView(R.layout.activity_login);
-        loginButton = (Button) findViewById(R.id.loginButton);
+        loginButton = (Button) findViewById(R.id.signupButton);
         phone = (EditText) findViewById(R.id.phone);
         password = (EditText) findViewById(R.id.password);
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements Map2Fragment.OnFr
                 }
             }
         });
-        signupButton = findViewById(R.id.signupButton);
+        signupButton = findViewById(R.id.backButton);
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

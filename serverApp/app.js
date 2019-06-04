@@ -198,13 +198,14 @@ io.on('connection', socket => {
   
     socket.on('ship/shipped', (idPackage, shippedAt) => {
    		console.log("update ship status" + idPackage +" " + status[2] + " " + shippedAt);
-   		Ship.update({
+   		Package.update({
 	   		status: status[2],
 	   		shippedAt: shippedAt
    		},{
    			where: {id: idPackage}
    		}).then(package => {
    			console.log(package)
+   			socket.emit('ship/shipped', "shipped");
    		});
    });//update status of a package=============================================================================
     socket.on('ship/shipper/cancel', (idPackage) => {
@@ -215,6 +216,7 @@ io.on('connection', socket => {
    			where: {id: idPackage}
    		}).then(package => {
    			console.log(package)
+   			socket.emit('ship/shipper/cancel', "cancel");
    		});
     });//when a shipper want to cancel a package, set idShipper of that package is null, status is wait========================
     socket.on('ship/recieve', (idPackage, idShipper) => {
@@ -226,9 +228,10 @@ io.on('connection', socket => {
    			where: {id: idPackage}
    		}).then(package => {
    			console.log(package)
+   			socket.emit('ship/recieve', "recieve");
    		});
    	});//=============================================================================================
-
+    
 });
 
 server.listen(3000, ()=>{

@@ -1,6 +1,7 @@
 package com.example.btl.adapters;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +19,7 @@ public class ListPackageAdapter extends BaseAdapter {
     private List<Item> listData;
     private LayoutInflater layoutInflater;
     private Context context;
-
+    SharedPreferences sharedpreferences;
     public ListPackageAdapter(List<Item> listData, Context context) {
         this.listData = listData;
         this.context = context;
@@ -61,7 +62,7 @@ public class ListPackageAdapter extends BaseAdapter {
         }
 
         Item item = this.listData.get(position);
-        int imageId = this.getMimapResIdByName(item.getAvatar());
+        int imageId = this.getMimapResIdByName("a");
         holder.avatar.setImageResource(imageId);
 
         holder.nickname.setText(item.getNickname());

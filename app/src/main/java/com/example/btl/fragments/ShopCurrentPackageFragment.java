@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.example.btl.R;
-import com.example.btl.adapters.ActivePackageAdapter;
+import com.example.btl.adapters.ShopActivePackageAdapter;
 import com.example.btl.dao.Package;
 import com.example.btl.dao.PackageDAOImpl;
 
@@ -39,8 +39,9 @@ public class ShopCurrentPackageFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
-    public ActivePackageAdapter activePackageAdapter;
+    public ShopActivePackageAdapter activePackageAdapter;
     SharedPreferences sharedPreferences;
+    List<Package> activePackageListData;
     public ShopCurrentPackageFragment() {
         // Required empty public constructor
     }
@@ -77,10 +78,10 @@ public class ShopCurrentPackageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_shop_current_package, container, false);
-
-        List<Package> activePackageListData = getListData(this);
+        activePackageListData = new ArrayList<>();
+        activePackageListData = getListData(this);
         final ListView activePackageList = view.findViewById(R.id.listActivePackage);
-        activePackageAdapter = new ActivePackageAdapter(activePackageListData, getActivity());
+        activePackageAdapter = new ShopActivePackageAdapter(activePackageListData, getActivity());
         activePackageList.setAdapter(activePackageAdapter);
         return view;
     }

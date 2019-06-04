@@ -1,8 +1,10 @@
 package com.example.btl.dao;
 
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Looper;
 
+import com.example.btl.fragments.PackageFilterFragment;
 import com.example.btl.fragments.ShipperCurrentPackageFragment;
 import com.example.btl.fragments.ShopCurrentPackageFragment;
 import com.example.btl.funtional.MySocket;
@@ -20,6 +22,7 @@ import io.socket.emitter.Emitter;
 public class PackageDAOImpl implements PackageDAO {
     private Socket socket;
     final List<Package> packageList = new ArrayList<>();
+    SharedPreferences sharedPreferences;
     public PackageDAOImpl(){
         this.socket = MySocket.getInstance().socket;
     }
@@ -41,10 +44,10 @@ public class PackageDAOImpl implements PackageDAO {
                                 packageList.add(
                                         new Package(o.optInt("id"),
                                                 o.optInt("idOwner"),
-                                                o.optString("shipCost"),
-                                                o.optString("advanceMoney"),
                                                 o.optString("sendAddress"),
                                                 o.optString("recieveAddress"),
+                                                o.optString("shipCost"),
+                                                o.optString("advanceMoney"),
                                                 o.optString("description")
                                         )
                                 );
@@ -78,8 +81,9 @@ public class PackageDAOImpl implements PackageDAO {
     }
 
     @Override
-    public void delete(Package _package) {
-
+    public void delete(int id) {
+        socket.connect();
+        socket.emit("package/delete", id);
     }
 
     @Override
@@ -97,16 +101,18 @@ public class PackageDAOImpl implements PackageDAO {
                         for (int i = 0; i < data.length(); i++){
                             try {
                                 JSONObject o = data.getJSONObject(i);
-                                packageList.add(
-                                        new Package(o.optInt("id"),
-                                                o.optInt("idOwner"),
-                                                o.optString("sendAddress"),
-                                                o.optString("recieveAddress"),
-                                                o.optString("shipCost"),
-                                                o.optString("advanceMoney"),
-                                                o.optString("description")
-                                        )
+                                Package newPackage = new Package(o.optInt("id"),
+                                        o.optInt("idOwner"),
+                                        o.optString("sendAddress"),
+                                        o.optString("recieveAddress"),
+                                        o.optString("shipCost"),
+                                        o.optString("advanceMoney"),
+                                        o.optString("description")
                                 );
+                                JSONObject u = (JSONObject) o.opt("user");
+                                User owner = new User(u.optString("name"), u.optString("phone"));
+                                newPackage.setOwner(owner);
+                                packageList.add(newPackage);
                                 pk.activePackageAdapter.notifyDataSetChanged();
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -136,16 +142,22 @@ public class PackageDAOImpl implements PackageDAO {
                         for (int i = 0; i < data.length(); i++){
                             try {
                                 JSONObject o = data.getJSONObject(i);
-                                packageList.add(
-                                        new Package(o.optInt("id"),
-                                                o.optInt("idOwner"),
-                                                o.optString("sendAddress"),
-                                                o.optString("recieveAddress"),
-                                                o.optString("shipCost"),
-                                                o.optString("advanceMoney"),
-                                                o.optString("description")
-                                        )
+                                Package newPackage = new Package(o.optInt("id"),
+                                        o.optInt("idOwner"),
+                                        o.optString("sendAddress"),
+                                        o.optString("recieveAddress"),
+                                        o.optString("shipCost"),
+                                        o.optString("advanceMoney"),
+                                        o.optString("description")
                                 );
+                                JSONObject u = (JSONObject) o.opt("user");
+                                if (u == null) {
+                                    packageList.add(newPackage);
+                                    return;
+                                }
+                                User shipper = new User(u.optString("name"), u.optString("phone"));
+                                newPackage.setShipper(shipper);
+                                packageList.add(newPackage);
                                 pk.activePackageAdapter.notifyDataSetChanged();
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -159,5 +171,35 @@ public class PackageDAOImpl implements PackageDAO {
 
         return packageList;
     }
+    @Override
+    public List<Package> getAll(final PackageFilterFragment pk) {
+        final List<Package> packageList = new ArrayList<>();
+        socket.connect();
+        socket.emit("package/list");
+        socket.on("package/list", new Emitter.Listener() {
+            @Override
+            public void call(final Object... args) {
+                JSONArray data = (JSONArray) args[0];
+                for (int i = 0; i < data.length(); i++){
+                    try {
+                        JSONObject o = data.getJSONObject(i);
+                        Package newPackage = new Package(o.optInt("id"),
+                                o.optInt("idOwner"),
+                                o.optString("sendAddress"),
+                                o.optString("recieveAddress"),
+                                o.optString("shipCost"),
+                                o.optString("advanceMoney"),
+                                o.optString("description")
+                        );
+                        pk.packageList.add(newPackage);
+                        System.out.println("===================" + newPackage);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
 
+        return packageList;
+    }
 }

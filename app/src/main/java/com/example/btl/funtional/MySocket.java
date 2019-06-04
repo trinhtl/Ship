@@ -10,7 +10,7 @@ public class MySocket {
     public Socket socket;
     private MySocket(){
         try {
-            socket = IO.socket("http://192.168.0.103:3000");
+            socket = IO.socket("http://10.90.64.13:3000");
             System.out.println(socket.toString());
         } catch (URISyntaxException e) {
             e.printStackTrace();

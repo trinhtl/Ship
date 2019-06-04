@@ -38,9 +38,9 @@
     <TextView
         android:id="@+id/title"
         android:layout_width="342dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
 
-        android:layout_marginTop="53dp"
+        android:layout_marginTop="20dp"
         android:text="@string/titleReg"
         android:textAlignment="textStart"
         android:textColor="@android:color/holo_orange_light"
@@ -52,75 +52,61 @@
 
 
     <EditText
-        android:id="@+id/name"
-        android:layout_width="318dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="116dp"
-        android:layout_marginBottom="32dp"
-        android:ems="10"
-        android:hint="Tên đăng nhập"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/phone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
-
-    <EditText
         android:id="@+id/phone"
         android:layout_width="325dp"
-        android:layout_height="43dp"
-        android:layout_marginBottom="32dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="5dp"
         android:ems="10"
         android:hint="Số điện thoại"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/password"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
 
     <EditText
         android:id="@+id/password"
         android:layout_width="321dp"
-        android:layout_height="43dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Mật khẩu"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="367dp" />
+        app:layout_constraintTop_toBottomOf="@+id/phone" />
 
     <Button
-        android:id="@+id/loginButton"
+        android:id="@+id/signupButton"
         android:layout_width="220dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+
         android:background="@android:color/holo_orange_light"
-        android:text="Đăng ký"
+        android:text="Đăng ký"
         android:textAlignment="center"
         android:textColor="?attr/colorBackgroundFloating"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/cancel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <Button
-        android:id="@+id/cancel"
+        android:id="@+id/backButton"
         android:layout_width="220dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="150dp"
-        android:background="?attr/colorButtonNormal"
-        android:text="Hủy"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="110dp"
+        android:background="#E6D8BA"
+        android:text="Hủy"
+        android:textAlignment="center"
         android:textColor="?attr/colorBackgroundFloating"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent" />
-
-
-
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
 </android.support.constraint.ConstraintLayout>

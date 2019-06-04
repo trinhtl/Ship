@@ -20,6 +20,10 @@ public class User {
         this.password = password;
         this.avatar = "a";
     }
+    public User(String name, String phone){
+        this.name = name;
+        this.phone = phone;
+    }
     public int getId() {
         return id;
     }

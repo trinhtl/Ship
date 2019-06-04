@@ -11,13 +11,10 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.btl.R;
-import com.example.btl.ShipperNavigatorMenu;
+import com.example.btl.ShopNavigatorMenu;
 import com.example.btl.dao.Package;
-import com.example.btl.dao.ShipDAOImpl;
+import com.example.btl.dao.PackageDAOImpl;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import static com.example.btl.MainActivity.MyPREFERENCES;
@@ -25,13 +22,12 @@ import static com.example.btl.MainActivity.MyPREFERENCES;
 //import android.support.v7.widget.RecyclerView;
 //import android.support.v7.widget.RecyclerView.ViewHolder;
 
-public class ActivePackageAdapter extends BaseAdapter {
+public class ShopActivePackageAdapter extends BaseAdapter {
     private List<Package> listData;
     private LayoutInflater layoutInflater;
     private Context context;
-
     SharedPreferences sharedpreferences;
-    public ActivePackageAdapter(List<Package> listData, Context context) {
+    public ShopActivePackageAdapter(List<Package> listData, Context context) {
         this.listData = listData;
         this.context = context;
         layoutInflater = LayoutInflater.from(context);
@@ -53,10 +49,10 @@ public class ActivePackageAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        sharedpreferences = context.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         ViewHolder holder;
+        sharedpreferences = context.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         if(convertView == null){
-            convertView = layoutInflater.inflate(R.layout.active_package, null);
+            convertView = layoutInflater.inflate(R.layout.shop_active_package, null);
             holder = new ViewHolder();
             holder.sendAddress = (TextView) convertView.findViewById(R.id.begin);
             holder.recieveAddress = (TextView) convertView.findViewById(R.id.destination);
@@ -64,8 +60,7 @@ public class ActivePackageAdapter extends BaseAdapter {
             holder.shipCost = (TextView) convertView.findViewById(R.id.ShipMoney);
             holder.sendUser = (TextView) convertView.findViewById(R.id.sendUser);
             holder.recieveUser = (TextView) convertView.findViewById(R.id.receiveUser);
-            holder.shippedButton = convertView.findViewById(R.id.shippedButton);
-            holder.cancelActiveButton = convertView.findViewById(R.id.cancelActivePackage);
+            holder.cancel = convertView.findViewById(R.id.cancelActivePackage);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -76,39 +71,20 @@ public class ActivePackageAdapter extends BaseAdapter {
         holder.recieveAddress.setText(activePackage.getRecieveAddress());
         holder.advanceMoney.setText(activePackage.getAdvanceMoney());
         holder.shipCost.setText(activePackage.getShipCost());
-        holder.sendUser.setText(activePackage.getOwner().getName() + " sdt: " + activePackage.getOwner().getPhone());
-        holder.recieveUser.setText(sharedpreferences.getString("name", "shipper") + " sđt: " + sharedpreferences.getString("phone", ""));
-        holder.cancelActiveButton.setOnClickListener(new View.OnClickListener() {
+        holder.sendUser.setText(sharedpreferences.getString("name", "")  + " sdt: " + sharedpreferences.getString("phone", ""));
+        holder.recieveUser.setText(activePackage.getShipper().getName() + " sdt: " + activePackage.getShipper().getPhone());
+        holder.cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ShipDAOImpl shipDAO = new ShipDAOImpl();
-                shipDAO.cancel(activePackage.getId());
+                PackageDAOImpl packageDAO = new PackageDAOImpl();
+                packageDAO.delete(activePackage.getId());
                 try {
                     Thread.currentThread().join(500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                Intent shipperActivePackage = new Intent(v.getContext(), ShipperNavigatorMenu.class);
-                v.getContext().startActivity(shipperActivePackage);
-            }
-        });
-        holder.shippedButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ShipDAOImpl shipDAO = new ShipDAOImpl();
-                Date c = Calendar.getInstance().getTime();
-                System.out.println("Current time => " + c);
-
-                SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
-                String formattedDate = df.format(c);
-                shipDAO.shipped(activePackage.getId(), formattedDate);
-                try {
-                    Thread.currentThread().join(500);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                Intent shipperActivePackage = new Intent(v.getContext(), ShipperNavigatorMenu.class);
-                v.getContext().startActivity(shipperActivePackage);
+                Intent shop = new Intent(v.getContext(), ShopNavigatorMenu.class);
+                v.getContext().startActivity(shop);
             }
         });
         return convertView;
@@ -120,7 +96,6 @@ public class ActivePackageAdapter extends BaseAdapter {
         TextView shipCost;
         TextView sendUser;
         TextView recieveUser;
-        Button shippedButton;
-        Button cancelActiveButton;
+        Button cancel;
     }
 }

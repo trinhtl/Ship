@@ -61,7 +61,7 @@ public class ShipperNavigatorMenu extends AppCompatActivity implements ShipperCu
         toolbar = getSupportActionBar();
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.shipperNavigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        navigation.setSelectedItemId(R.id.listPackageIcon);
+        navigation.setSelectedItemId(R.id.activePackageIcon);
 
     }
     private void loadFragment(Fragment fragment){
