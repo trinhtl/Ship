@@ -18,7 +18,7 @@
   "homepage": "https://github.com/trinhtl/Ship#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "http": "0.0.0",
     "multer": "^1.4.1",
     "sequelize": "^5.7.6",
